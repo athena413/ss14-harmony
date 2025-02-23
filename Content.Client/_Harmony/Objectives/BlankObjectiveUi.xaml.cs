@@ -13,8 +13,13 @@ public sealed partial class BlankObjectiveUi : FancyWindow
         RobustXamlLoader.Load(this);
     }
 
-    public string SetObjective()
+    public string GetObjectiveName()
     {
-        return Rope.Collapse(ObjectiveTextEdit.TextRope);
+        return ObjectiveNameLineEdit.Text;
+    }
+
+    public string GetObjectiveDesc()
+    {
+        return Rope.Collapse(ObjectiveDescriptionTextEdit.TextRope);
     }
 }

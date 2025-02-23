@@ -23,5 +23,6 @@ public sealed class BlankObjectiveEui : BaseEui
 
         _metaData.SetEntityName(_target, s.Name);
         _metaData.SetEntityDescription(_target, s.Description);
+        Close();
     }
 }

@@ -12,7 +12,11 @@ public sealed class BlankObjectiveEui : BaseEui
     {
         _blankObjectiveUi = new BlankObjectiveUi();
         _blankObjectiveUi.OnClose += () => SendMessage(new CloseEuiMessage());
-        _blankObjectiveUi.SubmitButton.OnPressed += _ => SendMessage(new ObjetiveSaveMessage("Custom objective", _blankObjectiveUi.SetObjective()));
+        _blankObjectiveUi.SubmitButton.OnPressed += _ =>
+        {
+            SendMessage(new ObjetiveSaveMessage(_blankObjectiveUi.GetObjectiveName(), _blankObjectiveUi.GetObjectiveDesc()));
+            _blankObjectiveUi.Close();
+        };
     }
 
     public override void Opened()

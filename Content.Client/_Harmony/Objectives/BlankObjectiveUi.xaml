@@ -8,7 +8,15 @@
         Orientation="Vertical"
         Margin="5 5 5 5">
 
-        <TextEdit Name="ObjectiveTextEdit"
+        <LineEdit Name="ObjectiveNameLineEdit"
+            Margin="0 0 0 5"
+            HorizontalAlignment="Stretch"
+            PlaceHolder="Objective Name"
+            Editable="True">
+        </LineEdit>
+
+
+        <TextEdit Name="ObjectiveDescriptionTextEdit"
             Margin="0 0 0 5"
             VerticalExpand="True"
             HorizontalExpand="True"
