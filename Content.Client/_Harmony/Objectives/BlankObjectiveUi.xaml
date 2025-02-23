@@ -1,0 +1,26 @@
+<ui:FancyWindow xmlns="https://spacestation14.io"
+                xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+                VerticalExpand="True" HorizontalExpand="True"
+                Title="Choose your objective"
+                MinSize="400 200">
+
+    <BoxContainer
+        Orientation="Vertical"
+        Margin="5 5 5 5">
+
+        <TextEdit Name="ObjectiveTextEdit"
+            Margin="0 0 0 5"
+            VerticalExpand="True"
+            HorizontalExpand="True"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Editable="True">
+        </TextEdit>
+
+        <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 0 0 0">
+            <Button Name="SubmitButton" Text="Submit" StyleClasses="OpenLeft" Access="Public"></Button>
+            <Button Name="MakeUpObjectivesButton" Text="Make up objectives for me" StyleClasses="OpenRight"></Button>
+        </BoxContainer>
+
+    </BoxContainer>
+</ui:FancyWindow>
