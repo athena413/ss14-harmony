@@ -1,7 +1,7 @@
 <ui:FancyWindow xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                 VerticalExpand="True" HorizontalExpand="True"
-                Title="Choose your objective"
+                Title="Select objective"
                 MinSize="400 200">
 
     <BoxContainer
