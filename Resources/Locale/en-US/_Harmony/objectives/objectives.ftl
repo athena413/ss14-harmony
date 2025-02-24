@@ -1,3 +1,5 @@
+objective-issuer-custom = Custom Objective
+
 objective-blank-player-name = Custom objective
 objective-blank-player-description = You need to do... something. You'll decide on what to do soon, I'm sure.
 

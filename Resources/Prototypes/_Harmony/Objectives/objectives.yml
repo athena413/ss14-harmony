@@ -4,7 +4,7 @@
   id: BaseCustomObjective
   components:
   - type: Objective
-    issuer: Custom Objective
+    issuer: objective-issuer-custom
 
 
 # "Choose your own objective" objective
