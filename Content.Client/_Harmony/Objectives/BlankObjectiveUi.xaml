@@ -27,7 +27,7 @@
 
         <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom" Margin="0 0 0 0">
             <Button Name="SubmitButton" Text="Submit" StyleClasses="OpenLeft" Access="Public"></Button>
-            <Button Name="MakeUpObjectivesButton" Text="Make up objectives for me" StyleClasses="OpenRight"></Button>
+            <!--Button Name="MakeUpObjectivesButton" Text="Make up objectives for me" StyleClasses="OpenRight" Access="Public"></Button-->
         </BoxContainer>
 
     </BoxContainer>

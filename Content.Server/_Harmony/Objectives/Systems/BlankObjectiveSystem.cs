@@ -1,6 +1,7 @@
 using Content.Server.EUI;
 using Content.Shared.Objectives.Components;
 using Robust.Server.Player;
+using Robust.Shared.Player;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -25,7 +26,15 @@ public sealed class BlankObjectiveSystem : EntitySystem
 
     private void OnPersonAssigned(EntityUid uid, BlankObjectiveComponent comp, ref ObjectiveAssignedEvent args)
     {
-        if (args.Mind.OwnedEntity is null || !_playerManager.TryGetSessionByEntity((EntityUid)args.Mind.OwnedEntity, out var session))
+        if (args.Mind.OwnedEntity is not null
+        && comp.SelfDefined
+        && _playerManager.TryGetSessionByEntity((EntityUid)args.Mind.OwnedEntity, out var session))
+            RunEui(uid, session);
+    }
+
+    public void RunEui(EntityUid uid, ICommonSession? session)
+    {
+        if (session is null)
             return;
 
         var ui = new BlankObjectiveEui(_metaData, uid);

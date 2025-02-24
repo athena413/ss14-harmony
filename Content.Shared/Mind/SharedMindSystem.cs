@@ -326,19 +326,28 @@ public abstract class SharedMindSystem : EntitySystem
 
     public virtual void ControlMob(NetUserId user, EntityUid target) {}
 
+    //Harmony - Add TryAddObjective overload. A lot of stuff was moved.
+
     /// <summary>
     /// Tries to create and add an objective from its prototype id.
     /// </summary>
     /// <returns>Returns true if adding the objective succeeded.</returns>
-    public bool TryAddObjective(EntityUid mindId, MindComponent mind, string proto)
+    public bool TryAddObjective(EntityUid mindId, MindComponent mind, string proto, [NotNullWhen(true)] out EntityUid? objective)
     {
-        var objective = _objectives.TryCreateObjective(mindId, mind, proto);
+        objective = _objectives.TryCreateObjective(mindId, mind, proto);
         if (objective == null)
             return false;
 
         AddObjective(mindId, mind, objective.Value);
         return true;
     }
+
+    public bool TryAddObjective(EntityUid mindId, MindComponent mind, string proto)
+    {
+        return TryAddObjective(mindId, mind, proto, out var obj);
+    }
+
+    //End Harmony
 
     /// <summary>
     /// Adds an objective that already exists, and is assumed to have had its requirements checked.

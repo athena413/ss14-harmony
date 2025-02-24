@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Objectives.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -17,6 +18,8 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!; //Harmony
+    [Dependency] private readonly BlankObjectiveSystem _blankObjectiveSystem = default!; //Harmony
 
     public override string Command => "addobjective";
 
@@ -47,11 +50,19 @@ public sealed class AddObjectiveCommand : LocalizedEntityCommands
             return;
         }
 
-        if (!_mind.TryAddObjective(mindId, mind, args[1]))
+        if (!_mind.TryAddObjective(mindId, mind, args[1], out var obj))
         {
             // can fail for other reasons so dont pretend to be right
             shell.WriteError(Loc.GetString("cmd-addobjective-adding-failed"));
         }
+
+        //Harmony - Handle blank admin objectives
+        if (_entityManager.TryGetComponent<BlankObjectiveComponent>(obj, out var blankObjectiveComp)
+        && !blankObjectiveComp.SelfDefined)
+        {
+            _blankObjectiveSystem.RunEui((EntityUid)obj, shell.Player);
+        }
+        //End harmony
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

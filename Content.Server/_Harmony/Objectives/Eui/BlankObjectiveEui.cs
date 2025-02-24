@@ -16,13 +16,16 @@ public sealed class BlankObjectiveEui : BaseEui
 
     public override void HandleMessage(EuiMessageBase msg)
     {
-        if (msg is not ObjetiveSaveMessage s)
+        switch (msg)
         {
-            return;
+            case ObjetiveSaveMessage s:
+                _metaData.SetEntityName(_target, s.Name);
+                _metaData.SetEntityDescription(_target, s.Description);
+                break;
+            case CloseEuiMessage:
+                Close();
+                break;
         }
 
-        _metaData.SetEntityName(_target, s.Name);
-        _metaData.SetEntityDescription(_target, s.Description);
-        Close();
     }
 }
