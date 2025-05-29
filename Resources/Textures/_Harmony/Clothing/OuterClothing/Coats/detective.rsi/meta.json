@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC0-1.0",
-    "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/3a941632978abfa69290c961ffb55db5e665aa69. Modified by BoskiYourk (GitHub) and TheCrimsonJupiter (GitHub). Vox sprites made by TheCrimsonJupiter (GitHub).",
+    "copyright": "Originally made by SpadeSlick at commit https://github.com/discordia-space/CEV-Eris/commit/3a941632978abfa69290c961ffb55db5e665aa69. Modified by BoskiYourk (GitHub) and TheCrimsonJupiter (GitHub). Vox sprites made by TheCrimsonJupiter (GitHub).",
     "size": {
         "x": 32,
         "y": 32
