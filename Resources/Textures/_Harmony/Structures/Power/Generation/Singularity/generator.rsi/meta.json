@@ -3,15 +3,15 @@
     "copyright": "Made By BoskiYourk (Github)",
     "license": "CC-BY-SA-3.0",
     "size": {
-      "x": 32,
-      "y": 32
+        "x": 32,
+        "y": 32
     },
     "states": [
-      {
-        "name": "icon"
-      },
-      {
-        "name": "icon-unshaded"
-      }
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-unshaded"
+        }
     ]
 }

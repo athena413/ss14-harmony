@@ -1,32 +1,32 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "made by thesaladmancer on Discord / Twitter",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "icon"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by thesaladmancer (Discord / Twitter)",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "base"
-    },
-    {
-      "name": "closed"
-    },
-    {
-      "name": "open"
-    },
-    {
-      "name": "welded"
-    },
-    {
-      "name": "locked"
-    },
-    {
-      "name": "unlocked"
-    }
-  ]
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "closed"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "welded"
+        },
+        {
+            "name": "locked"
+        },
+        {
+            "name": "unlocked"
+        }
+    ]
 }
