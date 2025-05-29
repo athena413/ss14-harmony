@@ -1,14 +1,12 @@
 {
     "version": 1,
-    "size":
-    {
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by SteroidsOnSteroids (GitHub)",
+    "size": {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "2024 SteroidsOnSteroids https://github.com/SteroidsOnSteroids",
-    "states":
-    [
+    "states": [
         {
             "name": "icon"
         },
@@ -27,5 +25,5 @@
         {
             "name": "fill-4"
         }
-    ] 
+    ]
 }

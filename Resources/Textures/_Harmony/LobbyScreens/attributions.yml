@@ -1,14 +1,14 @@
 - files: ["stationcafe.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Amadisaronno. amatiramasu on Discord"
-  source: "https://github.com/ss14-harmony/ss14-harmony"
+  copyright: "Made by Amadisaronno (amatiramasu on Discord)"
+  source: "https://github.com/ss14-harmony/ss14-harmony/commit/42b90d5622ad6280e1b673f7b108fbdabb977c5e"
 
 - files: ["maints-slasher.webp"]
   license: "CC-BY-NC-SA-4.0"
-  copyright: "thesaladmancer on Discord / Twitter"
-  source: "https://github.com/ss14-harmony/ss14-harmony"
+  copyright: "Made by thesaladmancer (Discord / Twitter)"
+  source: "https://github.com/ss14-harmony/ss14-harmony/commit/8932e148d438a40254473b44ec166007476ef27e"
 
 - files: ["survivalharmony.webp"]
   license: "CC0-1.0"
-  copyright: "Logan Avery on Twitter / @eli_sarek"
-  source: "https://github.com/ss14-harmony/ss14-harmony"
+  copyright: "Made by Logan Avery (eli_sarek on Twitter)"
+  source: "https://github.com/ss14-harmony/ss14-harmony/commit/6dac89c16d449f6dfc17984a935714a5106547ab"

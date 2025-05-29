@@ -1,14 +1,12 @@
 {
     "version": 1,
-    "size":
-    {
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Lachryphage (GitHub) and whythelettuce (GitHub).",
+    "size": {
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-  "copyright": "Made by lachryphage with sprites by whythelettuce for use in Harmony.",
-    "states":
-    [
+    "states": [
         {
             "name": "icon"
         },

@@ -1,32 +1,32 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "tgstation at 606005645d3a14c4439e5ce14785650121b22678, modified* by Jack the dragon",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "ss14sign1"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/606005645d3a14c4439e5ce14785650121b22678. Modified by jack-thedragon95 (GitHub)",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "ss14sign2"
-    },
-    {
-      "name": "ss14sign3"
-    },
-    {
-      "name": "ss14sign4"
-    },
-    {
-      "name": "ss14sign5"
-    },
-    {
-      "name": "ss14sign6"
-    },
-    {
-      "name": "ss14sign7"
-    }
-  ]
+    "states": [
+        {
+            "name": "ss14sign1"
+        },
+        {
+            "name": "ss14sign2"
+        },
+        {
+            "name": "ss14sign3"
+        },
+        {
+            "name": "ss14sign4"
+        },
+        {
+            "name": "ss14sign5"
+        },
+        {
+            "name": "ss14sign6"
+        },
+        {
+            "name": "ss14sign7"
+        }
+    ]
 }
