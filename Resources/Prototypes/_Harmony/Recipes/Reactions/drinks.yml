@@ -11,16 +11,6 @@
     AviationCocktail: 5
 
 - type: reaction
-  id: EspressoMartini
-  reactants:
-    BlackRussian:
-      amount: 1
-    Coffee:
-      amount: 1
-  products:
-    EspressoMartini: 2
-
-- type: reaction
   id: StarsetSarsaparilla
   reactants:
     SolDry:
@@ -45,3 +35,15 @@
       amount: 1
   products:
     SunsetSoda: 6
+
+- type: reaction
+  id: ThirstTrap
+  reactants:
+    Cream:
+      amount: 3
+    TableSalt:
+      amount: 2
+    SodiumPolyacrylate:
+      amount: 1
+  products:
+    ThirstTrap: 6

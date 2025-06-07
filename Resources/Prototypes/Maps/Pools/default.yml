@@ -4,15 +4,14 @@
   - Amber
   - Bagel
   - Box
-  - Cog
   - Convex
-  - Core
+  #- Core
   - Elkridge
   - Fland
   #- Gate
-  - Loop
+  #- Loop # Harmony, removed
   - Marathon
-  - Meta
+  #- Meta # Harmony, removed
   - Oasis
   - Omega
   - Packed
@@ -23,3 +22,5 @@
   - Aspid
   - Barratry
   - Atlas
+  - Mira
+  - Prime

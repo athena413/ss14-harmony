@@ -1,13 +1,15 @@
 - type: npcFaction
   id: Dragon
   hostile:
-    - NanoTrasen
-    - Syndicate
-    - Xeno
-    - PetsNT
-    - Zombie
-    - Revolutionary
-    - AllHostile
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: NanoTrasen
@@ -19,12 +21,16 @@
   - Revolutionary
   - Dragon
   - AllHostile
+  - Wizard
+  - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Mouse
   hostile:
-    - PetsNT
-    - AllHostile
+  - PetsNT
+  - AllHostile
+  - Wizard
 
 - type: npcFaction
   id: Passive
@@ -37,6 +43,8 @@
   - Zombie
   - Xeno
   - AllHostile
+  - Wizard
+  - Dragon
 
 - type: npcFaction
   id: SimpleHostile
@@ -47,7 +55,12 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Dragon
+  - Xeno
   - AllHostile
+  - Wizard
+  - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: SimpleNeutral
@@ -62,6 +75,8 @@
   - Zombie
   - Dragon
   - AllHostile
+  - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: Xeno
@@ -73,6 +88,10 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Wizard
+  - Dragon
+  - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Zombie
@@ -85,6 +104,10 @@
   - PetsNT
   - Revolutionary
   - AllHostile
+  - Wizard
+  - Dragon
+  - Xenoborg
+  - BloodBrother # Harmony
 
 - type: npcFaction
   id: Revolutionary
@@ -94,6 +117,8 @@
   - SimpleHostile
   - Dragon
   - AllHostile
+  - Wizard
+  - Xenoborg
 
 - type: npcFaction
   id: AllHostile
@@ -109,3 +134,41 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Wizard
+  - Xenoborg
+  - BloodBrother # Harmony
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Xenoborg
+  - BloodBrother # Harmony
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - BloodBrother # Harmony
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile 
+  - AllHostile

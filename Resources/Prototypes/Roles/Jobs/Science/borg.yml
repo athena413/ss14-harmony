@@ -1,12 +1,14 @@
 # No idea why it's in sci but we ball.
+# Why is this one file?
 - type: job
   id: StationAi
   name: job-name-station-ai
   description: job-description-station-ai
   playTimeTracker: JobStationAi
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 10800  # 3 hrs
+  - !type:RoleTimeRequirement
+    role: JobBorg
+    time: 14400 # Harmony change: 5hrs -> 4 hrs
   canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
@@ -21,7 +23,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 0 # 60 hrs
+      time: 14400 # 4 hrs
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd
