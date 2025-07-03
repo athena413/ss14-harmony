@@ -74,6 +74,7 @@ namespace Content.IntegrationTests.Tests
             "Eclipse", //Harmony, Developed by Lachryphage
             "Prime", // Harmony, developed/revived by luckyshotpictures
             "Spire", // Harmony, Developed by Dogbone10, PenguinCodest, Jack_the_Dragon
+            "Tram2", // Harmony, Developed by chromelightning
             "Dev",
             "TestTeg",
             "Fland",
