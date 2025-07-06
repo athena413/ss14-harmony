@@ -1,0 +1,6 @@
+# only kept so the game is happy when trying to load the playtime tracker
+- type: job
+  id: PermaPrisoner
+  name: job-name-prisoner
+  playTimeTracker: JobPermaPrisoner
+  setPreference: false
