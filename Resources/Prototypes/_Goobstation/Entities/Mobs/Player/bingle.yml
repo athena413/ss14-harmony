@@ -11,6 +11,15 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
+    - map: ["enum.CombatModeVisualLayers.CombatEnabled"]
+      state: combat
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CombatModeVisuals.Enabled:
+        enum.CombatModeVisualLayers.CombatEnabled:
+          True: { visible: true }
+          False: { visible: false }
   - type: DamageStateVisuals
     rotate: true
     states:

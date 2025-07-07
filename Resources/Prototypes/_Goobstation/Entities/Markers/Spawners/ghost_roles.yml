@@ -20,6 +20,7 @@
 - type: entity
   parent: SpawnPointGhostBingle
   id: SpawnPointGhostBinglePrime
+  categories: [ HideSpawnMenu, Spawner ]
   components:
   - type: GhostRole
     raffle:

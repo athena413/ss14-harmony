@@ -12,6 +12,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private   readonly SharedAppearanceSystem _appearanceSystem = default!; // Harmony
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedMindSystem  _mind = default!;
 
@@ -72,6 +73,8 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
         component.IsInCombatMode = value;
         Dirty(entity, component);
+
+        _appearanceSystem.SetData(entity, CombatModeVisuals.Enabled, value); // Harmony
 
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);

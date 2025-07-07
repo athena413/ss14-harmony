@@ -13,6 +13,10 @@
         },
         {
             "name": "dead"
+        },
+        {
+            "name": "combat",
+            "directions": 4
         }
     ]
 }
