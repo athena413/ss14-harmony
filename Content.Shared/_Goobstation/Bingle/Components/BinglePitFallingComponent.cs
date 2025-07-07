@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._Goobstation.Bingle.EntitySystems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Bingle.Components;
