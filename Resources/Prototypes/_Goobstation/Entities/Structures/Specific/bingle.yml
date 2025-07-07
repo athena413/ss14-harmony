@@ -5,7 +5,14 @@
   placement:
     mode: SnapgridCenter
   components:
-  # TODO: - type: BinglePit
+  - type: Sprite
+    drawdepth: FloorTiles
+    layers:
+    - sprite: _Goobstation/Structures/Specific/bingle_pit.rsi
+      state: icon
+  - type: Appearance
+  - type: ScaleVisuals
+  - type: BinglePit
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
@@ -25,11 +32,6 @@
         - ItemMask
         density: 1000
         hard: false
-  - type: Sprite
-    drawdepth: FloorTiles
-    layers:
-    - sprite: _Goobstation/Structures/Specific/bingle_pit.rsi
-      state: icon
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
