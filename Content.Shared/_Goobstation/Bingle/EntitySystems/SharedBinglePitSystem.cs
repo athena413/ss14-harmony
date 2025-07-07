@@ -5,12 +5,18 @@ using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
@@ -19,9 +25,14 @@ namespace Content.Shared._Goobstation.Bingle.EntitySystems;
 public abstract class SharedBinglePitSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly TileSystem _tileSystem = default!;
 
     public override void Initialize()
     {
@@ -120,6 +131,8 @@ public abstract class SharedBinglePitSystem : EntitySystem
 
         entity.Comp.CurrentLevel++;
 
+        _popupSystem.PopupEntity(Loc.GetString("bingle-pit-grow"), entity, PopupType.MediumCaution);
+
         UpgradeAllBingles(entity);
 
         Dirty(entity);
@@ -129,11 +142,41 @@ public abstract class SharedBinglePitSystem : EntitySystem
 
     private void SpawnBingle(Entity<BinglePitComponent> entity)
     {
+        SpawnTile(entity, entity.Comp.CurrentLevel * 2);
+
         var bingle = PredictedSpawnAtPosition(entity.Comp.GhostRoleToSpawn, Transform(entity).Coordinates);
 
         var bingleSpawner = EnsureComp<BingleSpawnerComponent>(bingle);
         bingleSpawner.Pit = entity;
         Dirty(bingle, bingleSpawner);
+    }
+
+    private void SpawnTile(Entity<BinglePitComponent> entity, float radius)
+    {
+        var center = Transform(entity);
+        if (center.GridUid is not { } gridUid || !TryComp(gridUid, out MapGridComponent? mapGrid))
+            return;
+
+        var tileEnumerator = _mapSystem.GetLocalTilesEnumerator(gridUid,
+            mapGrid,
+            new Box2(center.Coordinates.Position + new Vector2(-radius, -radius),
+                center.Coordinates.Position + new Vector2(radius, radius)));
+        var newTile = (ContentTileDefinition)_tileDefinitionManager[entity.Comp.BingleTile];
+
+        while (tileEnumerator.MoveNext(out var tile))
+        {
+            if (tile.Tile.TypeId == newTile.TileId)
+                continue;
+
+            var seed = SharedRandomExtensions.HashCodeCombine([(int)_gameTiming.CurTick.Value, tile.GetHashCode()]);
+            var random = new System.Random(seed);
+            if (tile.GetContentTileDefinition().Name != newTile.Name &&
+                random.Prob(0.1f)) // 10% probability to transform tile
+            {
+                _tileSystem.ReplaceTile(tile, newTile);
+                _tileSystem.PickVariant(newTile);
+            }
+        }
     }
 
     [PublicAPI]

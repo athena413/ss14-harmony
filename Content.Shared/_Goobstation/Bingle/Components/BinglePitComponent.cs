@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Bingle.EntitySystems;
+using Content.Shared.Maps;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -50,8 +51,8 @@ public sealed partial class BinglePitComponent : Component
     [DataField]
     public List<BinglePitLevel> Levels =
     [
-        new(0, false, 1, 1f),
-        new(10, true, 1, 2f),
+        new(0, false, 1, 1f, 1),
+        new(10, true, 1, 2f, 10),
     ];
 
     /// <summary>
@@ -62,6 +63,9 @@ public sealed partial class BinglePitComponent : Component
 
     [DataField]
     public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
+
+    [DataField]
+    public ProtoId<ContentTileDefinition> BingleTile = "FloorBingle";
 }
 
 /// <summary>
@@ -94,11 +98,15 @@ public sealed partial class BinglePitLevel
     [DataField]
     public float Size;
 
-    public BinglePitLevel(int pointsRequired, bool canEatLiving, int pointsPerBingle, float size)
+    [DataField]
+    public int TileRadius;
+
+    public BinglePitLevel(int pointsRequired, bool canEatLiving, int pointsPerBingle, float size, int tileRadius)
     {
         PointsRequired = pointsRequired;
         CanEatLiving = canEatLiving;
         PointsPerBingle = pointsPerBingle;
         Size = size;
+        TileRadius = tileRadius;
     }
 }
