@@ -120,6 +120,8 @@ public abstract class SharedBinglePitSystem : EntitySystem
 
         entity.Comp.CurrentLevel++;
 
+        UpgradeAllBingles(entity);
+
         Dirty(entity);
 
         _appearanceSystem.SetData(entity, ScaleVisuals.Scale, Vector2.One * nextLevel.Size);
@@ -168,6 +170,10 @@ public abstract class SharedBinglePitSystem : EntitySystem
     }
 
     protected virtual void PlayFallingAudio(Entity<BinglePitComponent> entity)
+    {
+    }
+
+    protected virtual void UpgradeAllBingles(Entity<BinglePitComponent> entity)
     {
     }
 }
