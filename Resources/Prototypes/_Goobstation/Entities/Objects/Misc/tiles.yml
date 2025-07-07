@@ -4,8 +4,8 @@
   name: bingle floor
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tiles/bingle.rsi
-    state: bingletile
+    sprite: _Goobstation/Objects/Tiles/tile.rsi
+    state: bingle
   - type: FloorTile
     outputs:
     - Plating
