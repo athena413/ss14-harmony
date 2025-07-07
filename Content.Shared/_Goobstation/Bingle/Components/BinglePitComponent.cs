@@ -2,6 +2,7 @@ using Content.Shared._Goobstation.Bingle.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Bingle.Components;
@@ -17,6 +18,9 @@ public sealed partial class BinglePitComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Points;
+
+    [DataField, AutoNetworkedField]
+    public int BingleSpawnPoints;
 
     [DataField]
     public int PointsPerObject = 1;
@@ -39,6 +43,9 @@ public sealed partial class BinglePitComponent : Component
     /// The list of levels that the bingle pit can reach.
     /// The lower in the list a level is, the later it happens.
     /// </summary>
+    /// <remarks>
+    /// Requiring less points to spawn a bingle than what is possible to gain is probably going to end up with something bad happening but I can't tell you what.
+    /// </remarks>
     [DataField]
     public List<BinglePitLevel> Levels =
     [
@@ -51,6 +58,9 @@ public sealed partial class BinglePitComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FallIntoPitTime = TimeSpan.FromSeconds(1.8f);
+
+    [DataField]
+    public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
 }
 
 /// <summary>

@@ -88,6 +88,7 @@
         Brute: -0.5
         Burn: -0.5
   - type: FlashImmunity
+  - type: Bingle
 
 - type: entity
   parent: MobBingle

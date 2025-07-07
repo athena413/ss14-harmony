@@ -64,6 +64,16 @@ public sealed class BinglePitSystem : SharedBinglePitSystem
         {
             RemCompDeferred(fallingUid, fallingComp);
         }
+
+        var ghostRoleQuery = EntityQueryEnumerator<BingleSpawnerComponent>();
+        while (ghostRoleQuery.MoveNext(out var bingleUid, out var bingleComp))
+        {
+            if (bingleComp.Pit != entity.Owner ||
+                TerminatingOrDeleted(bingleUid))
+                return;
+
+            QueueDel(bingleUid);
+        }
     }
 
     protected override void PlayFallingAudio(Entity<BinglePitComponent> entity)

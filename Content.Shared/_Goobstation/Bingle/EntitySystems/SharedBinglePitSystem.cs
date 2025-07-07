@@ -88,6 +88,24 @@ public abstract class SharedBinglePitSystem : EntitySystem
 
     #endregion
 
+    private void AddPoints(Entity<BinglePitComponent> entity, int points)
+    {
+        entity.Comp.Points += points;
+        entity.Comp.BingleSpawnPoints += points;
+
+        var currentLevel = GetCurrentLevel(entity);
+
+        while (entity.Comp.BingleSpawnPoints >= currentLevel.PointsPerBingle)
+        {
+            SpawnBingle(entity);
+            entity.Comp.BingleSpawnPoints -= currentLevel.PointsPerBingle;
+        }
+
+        UpdateLevel(entity);
+
+        Dirty(entity);
+    }
+
     private void UpdateLevel(Entity<BinglePitComponent> entity)
     {
         if (entity.Comp.CurrentLevel + 1 >= entity.Comp.Levels.Count)
@@ -107,19 +125,28 @@ public abstract class SharedBinglePitSystem : EntitySystem
         _appearanceSystem.SetData(entity, ScaleVisuals.Scale, Vector2.One * nextLevel.Size);
     }
 
+    private void SpawnBingle(Entity<BinglePitComponent> entity)
+    {
+        var bingle = PredictedSpawnAtPosition(entity.Comp.GhostRoleToSpawn, Transform(entity).Coordinates);
+
+        var bingleSpawner = EnsureComp<BingleSpawnerComponent>(bingle);
+        bingleSpawner.Pit = entity;
+        Dirty(bingle, bingleSpawner);
+    }
+
     [PublicAPI]
     public void StartFalling(Entity<BinglePitComponent?> entity, EntityUid tripper)
     {
         if (!Resolve(entity, ref entity.Comp))
             return;
 
-        entity.Comp.Points += entity.Comp.PointsPerObject;
+        var extraPoints = entity.Comp.PointsPerObject;
 
         if (TryComp<MobStateComponent>(tripper, out var mobState) &&
             mobState.CurrentState is MobState.Alive or MobState.Critical)
-            entity.Comp.Points += entity.Comp.AliveBonus;
+            extraPoints += entity.Comp.AliveBonus;
 
-        UpdateLevel((entity, entity.Comp));
+        AddPoints((entity, entity.Comp), extraPoints);
 
         Dirty(entity);
 
