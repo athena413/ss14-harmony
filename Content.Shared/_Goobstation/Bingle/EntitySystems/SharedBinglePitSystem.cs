@@ -8,6 +8,8 @@ using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StepTrigger.Systems;
@@ -30,6 +32,7 @@ public abstract class SharedBinglePitSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly TileSystem _tileSystem = default!;
 
@@ -204,6 +207,9 @@ public abstract class SharedBinglePitSystem : EntitySystem
         Dirty(tripper, falling);
 
         _stunSystem.TryKnockdown(tripper, entity.Comp.FallIntoPitTime, true);
+
+        if (TryComp<PullableComponent>(tripper, out var pullable))
+            _pullingSystem.TryStopPull(tripper, pullable);
 
         // PLay falling audio only on server because using the predicted function plays it twice ??
         PlayFallingAudio((entity, entity.Comp));
