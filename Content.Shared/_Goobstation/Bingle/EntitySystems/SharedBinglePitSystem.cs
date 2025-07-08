@@ -34,6 +34,7 @@ public abstract class SharedBinglePitSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
+    [Dependency] private readonly StepTriggerSystem _stepTriggerSystem = default!;
     [Dependency] private readonly TileSystem _tileSystem = default!;
 
     public override void Initialize()
@@ -142,6 +143,8 @@ public abstract class SharedBinglePitSystem : EntitySystem
         UpgradeAllBingles(entity);
 
         Dirty(entity);
+
+        _stepTriggerSystem.SetIgnoreWeightless(entity.Owner, nextLevel.IgnoreWeightless);
 
         _appearanceSystem.SetData(entity, ScaleVisuals.Scale, Vector2.One * nextLevel.Size);
     }
