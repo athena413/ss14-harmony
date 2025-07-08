@@ -7,6 +7,9 @@ namespace Content.Shared._Goobstation.Bingle.Components;
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class BinglePitFallingComponent : Component
 {
+    /// <summary>
+    /// Whether the entity has finished falling into the pit.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool Fell;
 

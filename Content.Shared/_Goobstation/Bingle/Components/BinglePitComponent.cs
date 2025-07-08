@@ -17,18 +17,34 @@ public sealed partial class BinglePitComponent : Component
     [ViewVariables]
     public Container Pit = default!;
 
+    /// <summary>
+    /// The amount of points this pit contains.
+    /// This resets everytime the level increases.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public int Points;
 
+    /// <summary>
+    /// A specific point accumulator parallel to bingle points but only used when adding new bingles.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public int BingleSpawnPoints;
 
+    /// <summary>
+    /// How many points are gained when an object is inserted into the pit.
+    /// </summary>
     [DataField]
     public int PointsPerObject = 1;
 
+    /// <summary>
+    /// A bonus that is added to the given number of points whenever something *alive* is inserted into the pit.
+    /// </summary>
     [DataField]
     public int AliveBonus = 4;
 
+    /// <summary>
+    /// The sound that plays when something falls into the pit.
+    /// </summary>
     [DataField]
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
 
@@ -61,9 +77,15 @@ public sealed partial class BinglePitComponent : Component
     [DataField]
     public TimeSpan FallIntoPitTime = TimeSpan.FromSeconds(1.8f);
 
+    /// <summary>
+    /// The entity that the pit will spawn whenever wanting to add more bingles.
+    /// </summary>
     [DataField]
     public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
 
+    /// <summary>
+    /// The tile that the pit will replace the floor around it with.
+    /// </summary>
     [DataField]
     public ProtoId<ContentTileDefinition> BingleTile = "FloorBingle";
 }
