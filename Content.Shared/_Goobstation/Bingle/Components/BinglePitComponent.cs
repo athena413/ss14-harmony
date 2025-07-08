@@ -45,13 +45,14 @@ public sealed partial class BinglePitComponent : Component
     /// The lower in the list a level is, the later it happens.
     /// </summary>
     /// <remarks>
-    /// Requiring less points to spawn a bingle than what is possible to gain is probably going to end up with something bad happening but I can't tell you what.
+    /// Requiring less points to spawn a bingle than what is possible to gain is probably going to end up with something bad happening.
     /// </remarks>
     [DataField]
     public List<BinglePitLevel> Levels =
     [
-        new(0, false, 1, 1f, 1),
-        new(10, true, 1, 2f, 10),
+        new(0, false, 2, 1f, 1), // level 1: bingles start and get a few bingles to start off with.
+        new(10, true, 10, 2f, 5), // level 2: bingles slowly get bigger
+        new(100, true, 50, 3f, 20), // level 3: max bingle capacity reached, much less bingles
     ];
 
     /// <summary>
@@ -97,6 +98,9 @@ public sealed partial class BinglePitLevel
     [DataField]
     public float Size;
 
+    /// <summary>
+    /// How far the bingle pit will place tiles.
+    /// </summary>
     [DataField]
     public int TileRadius;
 
