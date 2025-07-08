@@ -6,7 +6,7 @@
     weight: 5 # Currently equal to a paradox clone
     duration: null
     earliestStart: 30
-    reocurranceDelay: 90 # 1h30 between each bingle
+    reoccurrenceDelay: 90 # 1h30 between each bingle
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrime
