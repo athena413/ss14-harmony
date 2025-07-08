@@ -93,6 +93,7 @@
 - type: entity
   parent: MobBingle
   id: MobBinglePrime
+  categories: [ Spawner ]
   name: binglest
   suffix: Prime
   description: The most bingle per bingle.
