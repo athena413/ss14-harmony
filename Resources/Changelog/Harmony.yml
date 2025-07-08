@@ -2183,3 +2183,24 @@ Entries:
     changes:
     - type: Add
       message: Added bingles.
+  - id: 841
+    author: BlueMoon059
+    time: '2025-07-07T15:22:45.000000+00:00'
+    url: https://github.com/ss14-harmony/ss14-harmony/pull/841
+    changes:
+    - type: Tweak
+      message: Bingles no longer make an announcement when they appear.
+  - id: 843
+    author: BlueMoon059
+    time: '2025-07-08T15:16:40.000000+00:00'
+    url: https://github.com/ss14-harmony/ss14-harmony/pull/843
+    changes:
+    - type: Tweak
+      message: Fultons no longer vanish from containers when the container is damaged.
+  - id: 774
+    author: CollectionOfBones128
+    time: '2025-07-08T15:21:02.000000+00:00'
+    url: https://github.com/ss14-harmony/ss14-harmony/pull/774
+    changes:
+    - type: Tweak
+      message: The healing-focused nuclear operative is now called the nuclear operative medic.
