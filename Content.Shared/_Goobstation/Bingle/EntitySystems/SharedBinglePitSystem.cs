@@ -130,7 +130,11 @@ public abstract class SharedBinglePitSystem : EntitySystem
 
         entity.Comp.CurrentLevel++;
 
-        _popupSystem.PopupEntity(Loc.GetString("bingle-pit-grow"), entity, PopupType.MediumCaution);
+        _popupSystem.PopupPredicted(
+            Loc.GetString("bingle-pit-grow"),
+            entity,
+            null,
+            PopupType.MediumCaution);
 
         UpgradeAllBingles(entity);
 
