@@ -1,5 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Mobs; // Harmony
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
@@ -23,6 +24,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
         SubscribeLocalEvent<CombatModeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CombatModeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<CombatModeComponent, ToggleCombatActionEvent>(OnActionPerform);
+        SubscribeLocalEvent<CombatModeComponent, MobStateChangedEvent>(OnMobStateChanged); // Harmony
     }
 
     private void OnMapInit(EntityUid uid, CombatModeComponent component, MapInitEvent args)
@@ -49,6 +51,16 @@ public abstract class SharedCombatModeSystem : EntitySystem
         var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
         _popup.PopupClient(Loc.GetString(msg), args.Performer, args.Performer);
     }
+
+    // Harmony start
+    private void OnMobStateChanged(Entity<CombatModeComponent> entity, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState <= MobState.Critical)
+            return;
+
+        SetInCombatMode(entity, false, entity.Comp);
+    }
+    // Harmony end
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
     {
