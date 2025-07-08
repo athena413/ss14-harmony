@@ -171,7 +171,7 @@ public abstract class SharedBinglePitSystem : EntitySystem
             if (tile.Tile.TypeId == newTile.TileId)
                 continue;
 
-            var seed = SharedRandomExtensions.HashCodeCombine([(int)_gameTiming.CurTick.Value, tile.GetHashCode()]);
+            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_gameTiming.CurTick.Value, tile.GetHashCode() });
             var random = new System.Random(seed);
             if (tile.GetContentTileDefinition().Name != newTile.Name &&
                 random.Prob(0.1f)) // 10% probability to transform tile
