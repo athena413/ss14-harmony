@@ -2,15 +2,15 @@ using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Bingle.Components;
-using Content.Shared._Goobstation.Bingle.EntitySystems;
+using Content.Shared._Harmony.Bingle.Components;
+using Content.Shared._Harmony.Bingle.EntitySystems;
 using Content.Shared.Destructible;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Bingle.EntitySystems;
+namespace Content.Server._Harmony.Bingle.EntitySystems;
 
 public sealed class BinglePitSystem : SharedBinglePitSystem
 {

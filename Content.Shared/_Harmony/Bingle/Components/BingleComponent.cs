@@ -1,9 +1,9 @@
-using Content.Shared._Goobstation.Bingle.EntitySystems;
+using Content.Shared._Harmony.Bingle.EntitySystems;
 using Content.Shared.Polymorph;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Bingle.Components;
+namespace Content.Shared._Harmony.Bingle.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedBinglePitSystem))]
 [AutoGenerateComponentState]

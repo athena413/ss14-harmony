@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Bingle.EntitySystems;
+using Content.Shared._Harmony.Bingle.EntitySystems;
 using Content.Shared.Maps;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -6,7 +6,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Bingle.Components;
+namespace Content.Shared._Harmony.Bingle.Components;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedBinglePitSystem))]
 [AutoGenerateComponentState]

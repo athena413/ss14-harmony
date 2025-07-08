@@ -1,6 +1,6 @@
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Content.Shared._Goobstation.Bingle.Components;
+using Content.Shared._Harmony.Bingle.Components;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
@@ -22,7 +22,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
-namespace Content.Shared._Goobstation.Bingle.EntitySystems;
+namespace Content.Shared._Harmony.Bingle.EntitySystems;
 
 public abstract class SharedBinglePitSystem : EntitySystem
 {
