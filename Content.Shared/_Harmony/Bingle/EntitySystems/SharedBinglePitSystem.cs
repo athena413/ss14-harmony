@@ -45,6 +45,8 @@ public abstract class SharedBinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
         SubscribeLocalEvent<BinglePitComponent, StepTriggeredOffEvent>(OnStepTriggered);
 
+        SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnBingleAttemptAttack);
+
         #region Prevent BinglePitFalling from interacting
 
         SubscribeLocalEvent<BinglePitFallingComponent, UseAttemptEvent>(OnFallingAttempt);
@@ -86,6 +88,12 @@ public abstract class SharedBinglePitSystem : EntitySystem
             return;
 
         StartFalling(entity.AsNullable(), args.Tripper);
+    }
+
+    private void OnBingleAttemptAttack(Entity<BingleComponent> entity, ref AttackAttemptEvent args)
+    {
+        if (HasComp<BingleComponent>(args.Target) || HasComp<BinglePitComponent>(args.Target))
+            args.Cancel();
     }
 
     #region Prevent falling from interacting
