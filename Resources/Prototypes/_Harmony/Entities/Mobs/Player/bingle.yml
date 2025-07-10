@@ -7,7 +7,7 @@
   components:
   # Visuals
   - type: Sprite
-    sprite: _Goobstation/Mobs/Aliens/Bingles/bingle.rsi
+    sprite: _Harmony/Mobs/Aliens/Bingles/bingle.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: alive
@@ -112,7 +112,7 @@
   description: More bingle per bingle.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Aliens/Bingles/bingle_upgraded.rsi
+    sprite: _Harmony/Mobs/Aliens/Bingles/bingle_upgraded.rsi
   - type: Bingle
     upgraded: true
   - type: MeleeWeapon

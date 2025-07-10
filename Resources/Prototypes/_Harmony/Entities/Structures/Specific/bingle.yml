@@ -8,7 +8,7 @@
   - type: Sprite
     drawdepth: FloorTiles
     layers:
-    - sprite: _Goobstation/Structures/Specific/bingle_pit.rsi
+    - sprite: _Harmony/Structures/Specific/bingle_pit.rsi
       state: icon
   - type: Appearance
   - type: ScaleVisuals
