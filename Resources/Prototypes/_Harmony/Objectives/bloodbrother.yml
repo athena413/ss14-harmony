@@ -49,7 +49,7 @@
 
 - type: entity
   parent: [BaseBloodBrotherObjective, KillRandomHeadObjective]
-  id: BloodbrotherKillRandomHeadObjective
+  id: BloodBrotherKillRandomHeadObjective
 
 - type: entity
   parent: [BaseBloodBrotherObjective, TeachLessonRandomPersonObjective]
