@@ -48,22 +48,19 @@ public abstract class SharedBloodBrotherSystem : EntitySystem
     public void OnBloodBrotherMindshielded(Entity<MindShieldComponent> entity, ref MapInitEvent args)
     {
         if (HasComp<InitialBloodBrotherComponent>(entity))
-        {
-            RemCompDeferred<MindShieldComponent>(entity);
             return;
-        }
 
-        if (TryComp<BloodBrotherComponent>(entity, out var bloodBrother))
-        {
-            var name = Identity.Entity(entity, EntityManager);
-            RemCompDeferred<BloodBrotherComponent>(entity);
-            if (bloodBrother.DeconversionStunTime != null)
-                _stunSystem.TryParalyze(entity, bloodBrother.DeconversionStunTime.Value, true);
-            _popupSystem.PopupEntity(
-                Loc.GetString("blood-brother-break-control", ("name", name)),
-                entity,
-                PopupType.MediumCaution);
-        }
+        if (!TryComp<BloodBrotherComponent>(entity, out var bloodBrother))
+            return;
+
+        var name = Identity.Entity(entity, EntityManager);
+        RemCompDeferred<BloodBrotherComponent>(entity);
+        if (bloodBrother.DeconversionStunTime != null)
+            _stunSystem.TryParalyze(entity, bloodBrother.DeconversionStunTime.Value, true);
+        _popupSystem.PopupEntity(
+            Loc.GetString("blood-brother-break-control", ("name", name)),
+            entity,
+            PopupType.MediumCaution);
     }
 
     private bool CanGetState(ICommonSession? player)

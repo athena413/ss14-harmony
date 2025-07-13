@@ -2,7 +2,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared._Harmony.BloodBrothers.Components; // Harmony
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
@@ -44,7 +43,7 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     private void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
-        if (HasComp<HeadRevolutionaryComponent>(implanted) || HasComp<InitialBloodBrotherComponent>(implanted)) // Harmony - who doesn't love some good old hardcoded checks
+        if (HasComp<HeadRevolutionaryComponent>(implanted))
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
             QueueDel(implant);
