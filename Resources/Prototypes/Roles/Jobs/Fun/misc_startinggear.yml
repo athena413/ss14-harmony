@@ -103,18 +103,6 @@
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: PunPunIDCard
 
-- type: startingGear
-  id: MobPollyGear
-  equipment:
-    ears: ClothingHeadsetEngineering
-
-# Emotional Support Scurret
-
-- type: startingGear
-  id: EmotionalSupportScurretGear
-  equipment:
-    id: ScurretPDA
-
 # DeathMatch Gear
 
 - type: startingGear
@@ -148,7 +136,7 @@
 - type: startingGear
   id: MobAghostGear
   equipment:
-    back: ClothingBackpackSatchelAdmin
+    back: ClothingBackpackSatchelAdmin # Harmony: give admin bags explosion resistance
     id: AdminPDA
   storage:
     back:
@@ -156,6 +144,19 @@
     - trayScanner
     - AccessConfiguratorUniversal
     - Multitool
+    # Begin harmony specific admin tools
+    - Omnitool
+    - WelderExperimental
+    - HolofanProjector
+    - AppraisalTool
+    - AnomalyScanner
+    - WeaponPistolCHIMP
+    - EmagUnlimited
+    - BluespaceBeaker
+    - SyringeBluespace
+    - RubberStampCentcom
+    - DoorRemoteAll
+    # End harmony specific admin tools
 
 #Gladiator with spear
 - type: startingGear

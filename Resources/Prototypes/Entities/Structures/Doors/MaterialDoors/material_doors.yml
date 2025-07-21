@@ -55,6 +55,11 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
+# Start of Harmony Change: Removes IconSmoothing from Material Doors
+#  - type: IconSmooth
+#    key: walls
+#    mode: NoSprite
+# End of Harmony Change
   - type: Occluder
   - type: BlockWeather
 

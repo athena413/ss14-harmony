@@ -7,7 +7,7 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Objects/Weapons/Throwable/bola.rsi
+    sprite: _Harmony/Objects/Weapons/Throwable/bola.rsi #Harmony Change: Sprite pathway changed.
     state: icon
   - type: EmitSoundOnThrow
     sound: /Audio/Weapons/bolathrow.ogg
@@ -49,13 +49,5 @@
     canMoveBreakout: true
     maxEnsnares: 1
   - type: LandAtCursor
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.4
-        density: 20 # derived from base_item
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
+  - type: ExplosionResistance #Harmony Change -- Makes Bolas immune to explosives
+    damageCoefficient: 0.0

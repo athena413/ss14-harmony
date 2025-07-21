@@ -39,7 +39,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Slippery;
-using Content.Shared.Stunnable;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
@@ -49,9 +48,9 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server._Latestation.Speech.Components;//Harmony added-Valley Girl Acent
 
 namespace Content.Server.Administration.Systems;
 
@@ -81,11 +80,12 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
+    [Dependency] private readonly OutfitSystem _outfitSystem = default!;
 
     // All smite verbs have names so invokeverb works.
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
     {
-        if (!TryComp(args.User, out ActorComponent? actor))
+        if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
             return;
 
         var player = actor.PlayerSession;
@@ -275,7 +275,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Fluids/tomato_splat.rsi"), "puddle-1"),
                 Act = () =>
                 {
-                    _bloodstreamSystem.SpillAllSolutions((args.Target, bloodstream));
+                    _bloodstreamSystem.SpillAllSolutions(args.Target, bloodstream);
                     var xform = Transform(args.Target);
                     _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-blood-self"), args.Target,
                         args.Target, PopupType.LargeCaution);
@@ -588,7 +588,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Clothing/Uniforms/Jumpskirt/janimaid.rsi"), "icon"),
                 Act = () =>
                 {
-                    _outfit.SetOutfit(args.Target, "JanitorMaidGear", (_, clothing) =>
+                    _outfitSystem.SetOutfit(args.Target, "JanitorMaidGear", (_, clothing) =>
                     {
                         if (HasComp<ClothingComponent>(clothing))
                             EnsureComp<UnremoveableComponent>(clothing);
@@ -624,7 +624,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Objects/Materials/materials.rsi"), "ash"),
             Act = () =>
             {
-                QueueDel(args.Target);
+                EntityManager.QueueDeleteEntity(args.Target);
                 Spawn("Ash", Transform(args.Target).Coordinates);
                 _popupSystem.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", args.Target)), args.Target, PopupType.LargeCaution);
             },
@@ -879,7 +879,7 @@ public sealed partial class AdminVerbSystem
                 if (!hadSlipComponent)
                 {
                     slipComponent.SlipData.SuperSlippery = true;
-                    slipComponent.SlipData.StunTime = TimeSpan.FromSeconds(5);
+                    slipComponent.SlipData.ParalyzeTime = TimeSpan.FromSeconds(5);
                     slipComponent.SlipData.LaunchForwardsMultiplier = 20;
                 }
 
@@ -924,20 +924,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
-
-        var crawlerName = Loc.GetString("admin-smite-crawler-name").ToLowerInvariant();
-        Verb crawler = new()
+        
+        //Harmony change start-Added Valley Girl Smite
+        var valleyGirlName = Loc.GetString("admin-smite-valley-accent-name").ToLowerInvariant();
+        Verb valleyaccent = new()
         {
-            Text = crawlerName,
+            Text = valleyGirlName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("Mobs/Animals/snake.rsi"), "icon"),
+            Icon = new SpriteSpecifier.Rsi(new("Interface/Actions/voice-mask.rsi"), "icon"),
             Act = () =>
             {
-                EnsureComp<WormComponent>(args.Target);
+                EnsureComp<ValleyGirlAccentComponent>(args.Target);
             },
             Impact = LogImpact.Extreme,
-            Message = string.Join(": ", crawlerName, Loc.GetString("admin-smite-crawler-description"))
+            Message = string.Join(": ", valleyGirlName, Loc.GetString("admin-smite-valley-accent-description"))
         };
-        args.Verbs.Add(crawler);
+        args.Verbs.Add(valleyaccent);
+        //Harmony change end
+        
     }
 }
