@@ -1,163 +1,164 @@
-#imp, harmony: Disabled default beak marking
-#- type: marking
-# id: VoxBeak
-#  bodyPart: Snout
-#  markingCategory: Snout
-#  forcedColoring: true
-#  speciesRestriction: [Vox]
-#  sprites:
-#  - sprite: Mobs/Customization/vox_parts.rsi
-#    state: beak
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+- type: marking
+  id: VoxBeak
+  bodyPart: Snout
+  markingCategory: Snout
+  forcedColoring: true
+  speciesRestriction: [Vox]
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: beak
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxLArmScales
   bodyPart: LArm
   markingCategory: Arms
-  # forcedColoring: true #imp, harmony: Disables forced arm coloring
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_arm
-#imp, harmony: Disables arm marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxLLegScales
   bodyPart: LLeg
   markingCategory: Legs
-  # forcedColoring: true #imp, harmony: Disables forced leg color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_leg
-#imp, harmony: Disables leg marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxRArmScales
   bodyPart: RArm
   markingCategory: Arms
-  # forcedColoring: true #imp, harmony: Disables forced arm coloring
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_arm
-#imp, harmony: : Disables arm marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxRLegScales
   bodyPart: RLeg
   markingCategory: Legs
-  # forcedColoring: true #imp, harmony: Disables forced leg color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_leg
-#imp, harmony: Disables leg marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxRHandScales
   bodyPart: RHand
   markingCategory: Arms
-  # forcedColoring: true #imp, harmony: Disables forced hand color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_hand
-#imp, harmony: Disables hand marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxLHandScales
   bodyPart: LHand
   markingCategory: Arms
-  # forcedColoring: true #imp, harmony: Disables forced hand color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_hand
-#imp, harmony: Disables hand marking being forced
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxLFootScales
   bodyPart: LFoot
   markingCategory: Legs
-  # forcedColoring: true #imp, harmony: Disables forced foot color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: l_foot
-#imp, harmony: Disables forced foot marking
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
-#end imp & harmony changes
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
 - type: marking
   id: VoxRFootScales
   bodyPart: RFoot
   markingCategory: Legs
-  # forcedColoring: true #imp, harmony: Disables forced foot color
+  forcedColoring: true
   speciesRestriction: [Vox]
   sprites:
   - sprite: Mobs/Customization/vox_parts.rsi
     state: r_foot
-#imp, harmony: Disables forced foot marking, Disables default vox tail
-#  coloring:
-#    default:
-#      type:
-#        !type:SimpleColoring
-#        color: "#937e3d"
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#937e3d"
 
-#- type: marking
-#  id: VoxTail
-#  bodyPart: Tail
-#  markingCategory: Tail
-#  speciesRestriction: [Vox]
-#  forcedColoring: true
-#  sprites:
-#  - sprite: Mobs/Customization/vox_parts.rsi
-#    # Ideally this should use the normal tail sprite and apply an actual mask over it, not just use a butchered sprite
-#    state: tail_stenciled
-#end imp & harmony changes
+- type: marking
+  id: VoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: tail
+
+- type: marking
+  id: VoxTailShort
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: tail_short
+
+- type: marking
+  id: VoxTailBig
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vox]
+  forcedColoring: true
+  sprites:
+  - sprite: Mobs/Customization/vox_parts.rsi
+    state: tail_big
